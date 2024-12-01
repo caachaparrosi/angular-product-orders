@@ -1,6 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideHttpClient } from '@angular/common/http';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { AppComponent } from './app/app.component';
+import { reducers } from './app/store/reducers';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideHttpClient(), // Habilita HttpClient para solicitudes HTTP
+    provideStore(reducers), // Configura el Store global con reducers
+    provideStoreDevtools({ maxAge: 25, logOnly: false }) // Habilita DevTools en desarrollo
+  ],
+}).catch((err) => console.error(err));

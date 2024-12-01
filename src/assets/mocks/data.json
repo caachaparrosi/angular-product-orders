@@ -1,0 +1,10 @@
+{
+    "products": [
+      { "id": 1, "name": "Producto 1", "price": 100, "stock": 50 },
+      { "id": 2, "name": "Producto 2", "price": 200, "stock": 30 }
+    ],
+    "orders": [
+      { "id": 1, "productId": 1, "quantity": 2, "total": 200 }
+    ]
+  }
+  
