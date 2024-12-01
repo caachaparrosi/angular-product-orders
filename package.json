@@ -2,12 +2,9 @@
   "name": "angular-product-orders",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:angular-product-orders": "node dist/angular-product-orders/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
