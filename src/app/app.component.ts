@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store'; 
 import { StoreModule } from '@ngrx/store';
+import { RouterModule } from '@angular/router'; 
 import { CommonModule } from '@angular/common'; 
 import { ProductListComponent } from './features/products/product-list/product-list.component';
 import { ProductFormComponent } from './features/products/product-form/product-form.component';
 import { OrderListComponent } from './features/orders/order-list/order-list.component';
 import { OrderFormComponent } from './features/orders/order-form/order-form.component';
-import { Store } from '@ngrx/store'; 
+import { routes } from './app.routes';
 
 
 @Component({
@@ -13,6 +15,7 @@ import { Store } from '@ngrx/store';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     ProductListComponent,
     ProductFormComponent,
     OrderListComponent,
