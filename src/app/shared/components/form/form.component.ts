@@ -1,21 +1,32 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';  
+import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
   selector: 'app-form',
   templateUrl: './form.component.html',
-  imports: [NgIf, NgFor, FormsModule]  
+  imports: [NgIf, NgFor, FormsModule],
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
   @Input() fields: { name: string; type: string; value?: any }[] = [];
   @Output() submitForm = new EventEmitter<any>();
 
   model: any = {};
 
   ngOnInit() {
-    this.fields.forEach(field => (this.model[field.name] = field.value || ''));
+    this.initializeModel();
+  }
+
+  ngOnChanges() {
+    this.initializeModel();
+  }
+
+  initializeModel() {
+    this.model = {};
+    this.fields.forEach((field) => {
+      this.model[field.name] = field.value || '';
+    });
   }
 
   onSubmit() {

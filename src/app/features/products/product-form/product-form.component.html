@@ -1,5 +1,12 @@
 <div class="p-4">
-    <h1 class="text-2xl font-bold mb-4">Crear/Editar Producto</h1>
-    <app-form [fields]="fields" (submitForm)="onSubmit($event)"></app-form>
-  </div>
+  <h1 class="text-2xl font-bold mb-4">Crear/Editar Producto</h1>
+  <app-form [fields]="fields" (submitForm)="onSubmit($event)"></app-form>
+  <button
+    *ngIf="product"
+    (click)="onDelete()"
+    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4"
+  >
+    Eliminar Producto
+  </button>
+</div>
   

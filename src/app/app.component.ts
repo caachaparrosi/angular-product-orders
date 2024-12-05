@@ -26,4 +26,17 @@ import { routes } from './app.routes';
 })
 export class AppComponent {
   title = 'angular-product-orders';
+
+  selectedProduct: any = null;
+
+  onProductSelected(product: any) {
+    console.log('Producto seleccionado:', product);
+    this.selectedProduct = product; 
+  }
+
+  onFormSubmit(product: any) {
+    console.log('Producto guardado:', product);
+    this.selectedProduct = null; 
+  }
+
 }

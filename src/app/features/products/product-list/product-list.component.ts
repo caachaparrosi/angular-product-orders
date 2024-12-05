@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as ProductSelectors from '../../../store/products/products.selectors';
@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductListComponent  implements OnInit  {
   products$: Observable<any>;
+  @Output() selectProduct = new EventEmitter<any>();
+  selectedProduct: any;
 
   constructor(private store: Store) {
     this.products$ = this.store.select(ProductSelectors.selectAllProducts);
@@ -22,5 +24,10 @@ export class ProductListComponent  implements OnInit  {
 
   ngOnInit() {
     this.store.dispatch(ProductActions.loadProducts());
+  }
+
+  onRowSelected(product: any) {
+    this.selectedProduct = product;
+    this.selectProduct.emit(product);
   }
 }

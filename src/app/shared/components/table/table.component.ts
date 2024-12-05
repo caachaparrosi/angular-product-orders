@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common'; 
 
 @Component({
@@ -10,4 +10,9 @@ import { NgIf, NgFor } from '@angular/common';
 export class TableComponent {
   @Input() headers: string[] = [];
   @Input() rows: any[] = [];
+  @Output() rowSelected = new EventEmitter<any>();
+
+  onRowClick(row: any) {
+    this.rowSelected.emit(row);
+  }
 }

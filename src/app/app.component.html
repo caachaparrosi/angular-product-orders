@@ -1,9 +1,9 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
   <div class="bg-white shadow rounded">
-    <app-product-list></app-product-list>
+    <app-product-list (selectProduct)="onProductSelected($event)"></app-product-list>
   </div>
   <div class="bg-white shadow rounded">
-    <app-product-form></app-product-form>
+    <app-product-form [product]="selectedProduct"></app-product-form>
   </div>
 </div>
 
@@ -15,4 +15,3 @@
     <app-order-form></app-order-form>
   </div>
 </div>
-<router-outlet></router-outlet>  

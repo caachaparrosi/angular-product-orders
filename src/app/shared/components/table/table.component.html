@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of rows">
+      <tr *ngFor="let row of rows" (click)="onRowClick(row)" class="cursor-pointer hover:bg-gray-100">
         <td *ngFor="let header of headers" class="border border-gray-200 px-4 py-2">
           {{ row[header.toLowerCase()] }}
         </td>
